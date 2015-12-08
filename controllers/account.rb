@@ -1,5 +1,9 @@
 class AccountController < ApplicationController
+enable :sessions
 
+  get '/' do
+    p "hello world"
+  end
   get'/signin' do
     erb :signin
   end
@@ -9,7 +13,7 @@ class AccountController < ApplicationController
       @taken = 'Sorry, that username already exists. '
       return erb :signin
     end
-    user =  Account.create(user_email: params[:user_email], user_name: params[:user_name], password[:password], user_image: params[:image], )#research/ask how do you add the image and color we want to assign to it?
+    user =  Account.create(user_email: params[:user_email], user_name: params[:user_name], password: params[:password], user_image: params[:image])#research/ask how do you add the image and color we want to assign to it?
     session[:current_user] = user
     redirect '/'
   end

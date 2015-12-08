@@ -1,23 +1,22 @@
-class ApplicationController < Sinatra::base
+class ApplicationController < Sinatra::Base
   require 'bundler'
   Bundler.require
 
 ActiveRecord::Base.establish_connection(
-:database => 'buckit',
+:database => 'buckit', #datbase name
 :adapter => 'postgresql'
 )
 
-
+#enables the sessions
   enable :sessions
 
+#This tells the controller where to look for the views & public folder
   set :views, File.expand_path('../../views', __FILE__)
-  set :public, File.expand_path('../../public', __FILE__)
-
-file_not_found do
-  erb :file_not_found
-end
+  set :public_dir, File.expand_path('../../public', __FILE__)
 
 
+
+#to find out if user already exists
 def does_username_exist(username)
   user = Account.find_by(:user_name => username)
   if user
@@ -27,6 +26,7 @@ def does_username_exist(username)
   end
 end
 
+#check if user is in a active session 
 def authorization_check
   if session[:current_user] == nil
     redirect '/account/not_authorized'
