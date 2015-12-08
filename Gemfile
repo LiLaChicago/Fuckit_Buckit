@@ -6,4 +6,5 @@ gem 'bcrypt'
 gem 'activesupport'
 gem 'activerecord'
 gem 'json'
+
 # gem 'HTTParty'

@@ -1,12 +1,20 @@
 <!--BUCKIT SEARCH PAGE  -->
+<h3>Your bucks might have a home</h3>
 
 
 <!--WE WANT A SEARCH BOX THAT DISPLAYS THE CURRENT SEARCH  -->
 <!--ALSO NEEDS A BUTTON NEXT TO IT TO SEARCH ANOTHER BUCKIT IF RESULTS NOT FOUND -->
 <!-- THIS WILL REFRESH THE LIST FOR NEW SEARCH -->
+<form action="/buckit_search" method="post">
+  <input type="text" name="search" placeholder="Find existing buckit">
+  <input type="submit"></input>
+</form>
 
 
 <!--PAGE SHOULD DISPLAY A LIST OF RESULTS -->
 <!-- HIGHLIGHT A RESULT IF IT MATCHES YOUR SEARCH -->
 <!-- SECLECT/JOIN BUCKIT BUTTON -->
 <!--TAKES YOU TO BUCKIT -->
+<form action="/buckit_search" method="post">
+  <input type="button" placeholder="Join Buckit">
+</form>
