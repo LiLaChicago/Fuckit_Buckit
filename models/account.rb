@@ -8,7 +8,7 @@ class Account <ActiveRecord::Base
 
   #setting the password
   def password=(password)
-    self.password = BCryt::Password.create(password)
+    self.password = BCrypt::Password.create(password)
   end
 
   #getting the password

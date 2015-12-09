@@ -1,10 +1,11 @@
 class ApplicationController < Sinatra::Base
-  require 'bundler'
-  Bundler.require
+
+require 'bundler'
+Bundler.require
 
 ActiveRecord::Base.establish_connection(
-:database => 'buckit', #datbase name
-:adapter => 'postgresql'
+  :database => 'buckit', #datbase name
+  :adapter => 'postgresql'
 )
 
 #enables the sessions
