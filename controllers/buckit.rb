@@ -2,11 +2,20 @@ class BuckitController < ApplicationController
 
 # enable :sessions
 #routes to the home page
-get '/buckitsetup' do
+get '/create' do
+  # # authorization_check
+  # @user_name = session[:current_user].user_name
   erb :buckit_setup
 end
 
-post '/buckitsetup' do
+post '/create' do
+  @buckit = Buckit.new
+  @buckit.buckitname = params[:buckit_name]
+  @buckit.goal = params[:goal]
+  @buckit.duration = params[:duration]
+  @buckit.save
+  @buckit
+
 
   erb :buckit_setup
 end
