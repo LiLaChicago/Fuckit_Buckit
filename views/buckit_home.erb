@@ -6,6 +6,47 @@
 
 <!--ENTAILS A DROP DOWN MENU FOR USER TO CHOOSE FROM AVAILABLE COLORS. -->
 
-<form action="/buckit_home" method="post">
+<!-- <form action="/buckit_home" method="post">
       <input type="text" name="user_name" value="fuck_bucks">
+</form> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<form>
+  <div class="row">
+    <div class="six columns">
+      <label for="exampleEmailInput">Username</label>
+      <!-- the id for user_name needs to be inherited somehow -->
+      <input class="u-full-width" type="text" placeholder="" id="user_name">
+    </div>
+    <div class="six columns">
+      <!-- Generate color options -->
+      <label for="exampleRecipientInput">Choose your color</label>
+      <select class="u-full-width" id="exampleRecipientInput">
+        <option value="Option 1">Blue</option>
+        <option value="Option 2">Red</option>
+        <option value="Option 3">Green</option>
+        <option value="Option 4">Purple</option>
+        <option value="Option 5">Orange</option>
+        <option value="Option 6">Pink</option>
+        <option value="Option 7">Yellow</option>
+        <option value="Option 8">Black</option>
+        <option value="Option 9">White</option>
+        <option value="Option 10">Brown</option>
+      </select>
+    </div>
+  </div>
+  <label for="exampleMessage">The case for your fuckit</label>
+  <textarea class="u-full-width" placeholder="Go fuck yourself" id="exampleMessage"></textarea>
+  <!-- <label class="example-send-yourself-copy"> -->
+    <!-- <input type="checkbox"> -->
+    <!-- <span class="label-body">Send a copy to yourself</span> -->
+  <!-- </label> -->
+  <input class="button-primary" type="submit" value="Submit">
 </form>
+</body>
+</html>
