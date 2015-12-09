@@ -15,6 +15,7 @@ class AccountController < ApplicationController
     erb :signin
   end
 
+#user registration post
   post'/register' do
     if does_username_exist(params [:user_name]) == true
       @taken = 'Sorry, that username already exists. '
@@ -59,6 +60,7 @@ get '/logout' do
   session[:current_user] = nil
   redirect '/'
 end
+
 
 
 end #end of AccountController
