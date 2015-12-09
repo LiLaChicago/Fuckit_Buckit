@@ -1,5 +1,9 @@
 class Account <ActiveRecord::Base
 
+  has_one :user_avatar
+  has_many :buckit
+
+
   include BCrypt
 
   #setting the password
