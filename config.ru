@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'avatars.io'
 require('./controllers/application')
 require('./controllers/buckit')
 require('./controllers/account')

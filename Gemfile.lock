@@ -15,6 +15,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    avatars.io (0.1.5)
+      httparty
     bcrypt (3.1.10)
     builder (3.2.2)
     httparty (0.13.7)
@@ -46,6 +48,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   activesupport
+  avatars.io
   bcrypt
   httparty
   json

@@ -1,9 +1,8 @@
 class AccountController < ApplicationController
 
   get '/' do
-    authorization_check
-    @user_name = session[current_user].user_name
-    erb :buckit_home
+
+    erb :home
   end
 
   get '/not_authorized_for_fuckit' do
@@ -24,9 +23,9 @@ class AccountController < ApplicationController
     if (params [:user_email] != '' && params[:user_name] != '' && params[:password] != '')
     user =  Account.create(user_email: params[:user_email], user_name: params[:user_name], password: params[:password])#research/ask how do you add the image and color we want to assign to it?
     session[:current_user] = user
-    erb :buckit_setup
+    redirect '/createbuckit'
   else
-    @message = "You maye have no fucks to give, but please fill in all the fields!"
+    @message = "You may have no fucks to give, but please fill in all the fields!"
     erb :signin
   end
 end

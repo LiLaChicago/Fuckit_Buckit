@@ -26,7 +26,7 @@ def does_username_exist(username)
   end
 end
 
-#check if user is in a active session 
+#check if user is in a active session
 def authorization_check
   if session[:current_user] == nil
     redirect '/account/not_authorized'
