@@ -1,5 +1,4 @@
 require 'sinatra/base'
-
 require('./controllers/application')
 require('./controllers/buckit')
 require('./controllers/account')
