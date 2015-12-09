@@ -14,11 +14,11 @@ end
 
 post '/createbuckit' do
   @buckit = Buckit.new
-  @buckit.buckitname = params[:buckit_name]
+  @buckit.buckit_name = params[:buckit_name]
   @buckit.goal = params[:goal]
   @buckit.duration = params[:duration]
   @buckit.save
-  @user_name = session[:current_user].username
+  
 
 
   erb :buckit_setup
