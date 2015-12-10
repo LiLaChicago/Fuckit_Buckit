@@ -7,6 +7,7 @@ gem 'activesupport'
 gem 'activerecord'
 gem 'json'
 gem 'avatars.io'
+gem 'pry'
 
 gem 'httparty'
 

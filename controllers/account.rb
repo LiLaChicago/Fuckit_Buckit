@@ -13,18 +13,26 @@ class AccountController < ApplicationController
 
 #user registration post
   post '/register' do
+    #binding.pry
     if does_username_exist(params[:user_name]) == true
+      p 'username exists'
       return {:message =>'Sorry, that username already exists. '}.to_json
+    elsif (params[:user_email] != '' && params[:user_name] != '' && params[:password] != '')
+      #binding.pry
+      @user = Account.new
+      @user.user_email = params[:user_email]
+      @user.user_name = params[:user_name]
+      @user.password = params[:password]#research/ask how do you add the image and color we want to assign to it?
+      @user.save
+      session[:current_user] = @user
+      current_user = @user
+      p 'redirect'
+      redirect '/createbuckit'
+    else
+      p 'no fucks'
+      @message = "You may have no fucks to give, but please fill in all the fields!"
+      erb :signin
     end
-    if (params[:user_email] != '' && params[:user_name] != '' && params[:password] != '')
-    user =  Account.create(user_email: params[:user_email], user_name: params[:user_name], password: params[:password])#research/ask how do you add the image and color we want to assign to it?
-    session[:current_user] = user
-    current_user = Account.find_by(user_name: session[:current_user].user_name)
-    redirect '/createbuckit'
-  else
-    @message = "You may have no fucks to give, but please fill in all the fields!"
-    erb :signin
-  end
 end
 
 #user login, we want to make this be on the same page, side by side so leave erb as :signin?

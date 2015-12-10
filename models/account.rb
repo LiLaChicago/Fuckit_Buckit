@@ -1,15 +1,14 @@
-class Account <ActiveRecord::Base
+class Account < ActiveRecord::Base
 
-  self.table_name = 'account'
+  #self.table_name = 'account'
   has_one :user_avatar
   has_many :buckit
-
 
   include BCrypt
 
   #setting the password
   def password=(password)
-    self.password = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   #getting the password
