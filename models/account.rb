@@ -1,8 +1,8 @@
 class Account < ActiveRecord::Base
 
-  #self.table_name = 'account'
-  has_one :user_avatar
-  has_many :buckits
+  # self.table_name = 'account'
+  has_one :user_image
+  has_many :buckit
 
   include BCrypt
 
@@ -19,6 +19,7 @@ class Account < ActiveRecord::Base
   #authentication
 
   def self.authenticate(user_name, password)
+    # binding.pry
     current_user = Account.find_by(user_name: user_name)
     if (current_user.password == password)
       return current_user

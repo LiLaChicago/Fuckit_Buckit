@@ -40,16 +40,14 @@ get '/login' do
   erb :signin
 end
 
-end
-  post '/login' do
-    if (does_username_exist(params[:user_name]) == true && params[:password] != '')
-      user.Account.authenticate(params[user_name], params[:password]) #authentication
-    if user
-      session[:current_user] = user
-      erb :buckit_home
+post '/login' do
+  Account.authenticate(params[:user_name], params[:password])
+    if @user
+      session[:current_user] = @user
+      redirect '/buckethome'
     else
-        @message = "You may give no fucks but your username and password have to be correct!"
-        redirect "/login/signin"
+        return {:message => "You may give no fucks but your username and password have to be correct!"}.to_json
+        redirect '/account/signin'
     end
 end
 
