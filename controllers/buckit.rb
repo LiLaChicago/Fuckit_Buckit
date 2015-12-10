@@ -2,19 +2,18 @@ class BuckitController < ApplicationController
 
 # enable :sessions
 #routes to the home page
-get '/' do
+get '/'do
  erb :home
 end
 
 get '/createbuckit' do
-  authorization_check
+ authorization_check
   @user_name = session[:current_user].user_name
   erb :buckit_setup
 end
 
 post '/createbuckit' do
   authorization_check
-  @user_name = session[:current_user].user_name
   @buckit = Buckit.new
   @buckit.buckit_name = params[:buckit_name]
   @buckit.goal = params[:goal]
@@ -26,6 +25,7 @@ post '/createbuckit' do
   redirect '/buckethome' #make this!
 
 
+
   erb :buckit_setup
 end
 
@@ -34,7 +34,6 @@ get '/buckethome' do
 end
 
 post '/buckethome' do
-
 end
 #to add fuck to bucket
 get '/addfuck/:id' do
