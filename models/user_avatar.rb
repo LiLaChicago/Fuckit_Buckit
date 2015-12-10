@@ -1,3 +1,3 @@
-class UserAvatar<ActiveRecord::Base
+class UserAvatar < ActiveRecord::Base
   belongs_to :account
 end

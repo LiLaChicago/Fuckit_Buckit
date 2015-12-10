@@ -5,9 +5,6 @@ class AccountController < ApplicationController
     erb :home
   end
 
-  get '/not_authorized_for_fuckit' do
-    erb :not_authorized_for_fuckit
-  end
 
   #user registration, we want to make this be on the same page, side by side
   get '/register' do
@@ -22,7 +19,12 @@ class AccountController < ApplicationController
   end
     if (params[:user_email] != '' && params[:user_name] != '' && params[:password] != '')
     user = Account.create(user_email: params[:user_email], user_name: params[:user_name], password: params[:password])#research/ask how do you add the image and color we want to assign to it?
+      return {:message =>'Sorry, that username already exists. '}.to_json
+    end
+    if (params[:user_email] != '' && params[:user_name] != '' && params[:password] != '')
+    user =  Account.create(user_email: params[:user_email], user_name: params[:user_name], password: params[:password])#research/ask how do you add the image and color we want to assign to it?
     session[:current_user] = user
+    current_user = Account.find_by(user_name: session[:current_user].user_name)
     redirect '/createbuckit'
   else
     @message = "You may have no fucks to give, but please fill in all the fields!"
@@ -34,6 +36,11 @@ end
   get '/login' do
     erb :signin
   end
+#user login, we want to make this be on the same page, side by side so leave erb as :signin?
+get '/login' do
+  erb :signin
+end
+
 
 end
   post '/login' do
@@ -53,6 +60,18 @@ end
     session[:current_user] = nil
     redirect '/'
   end
+
+get '/not_authorized_for_fuckit' do
+  erb :not_authorized_for_fuckit
+end
+
+
+get '/logout' do
+  authorization_check
+  session[:current_user] = nil
+  redirect '/'
+end
+
 
   get '/logout' do
     authorization_check
