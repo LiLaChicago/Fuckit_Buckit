@@ -13,17 +13,30 @@ get '/createbuckit' do
 end
 
 post '/createbuckit' do
+  authorization_check
+  @user_name = session[:current_user].user_name
   @buckit = Buckit.new
   @buckit.buckit_name = params[:buckit_name]
   @buckit.goal = params[:goal]
-  @buckit.duration = params[:duration]
+  @buckit.start = params[:start]
+  @buckit.ending = params[:ending]
   @buckit.save
-  
+  session[:current_user] = @user
+  current_user = @user
+  redirect '/buckethome' #make this!
+
 
 
   erb :buckit_setup
 end
 
+get '/buckethome' do
+  erb :buckit_home
+end
+
+post '/buckethome' do
+
+end
 #to add fuck to bucket
 get '/addfuck/:id' do
   @buckit = Buckit.find_by(params[:id])

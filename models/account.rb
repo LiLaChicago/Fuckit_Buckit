@@ -2,7 +2,7 @@ class Account < ActiveRecord::Base
 
   #self.table_name = 'account'
   has_one :user_avatar
-  has_many :buckit
+  has_many :buckits
 
   include BCrypt
 

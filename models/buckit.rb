@@ -1,4 +1,4 @@
 class Buckit < ActiveRecord::Base
-  has_many :account
-  has_many :user_avatar
+  has_many :accounts
+  has_many :user_avatars
 end

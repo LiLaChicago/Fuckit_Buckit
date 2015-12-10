@@ -15,7 +15,7 @@ class AccountController < ApplicationController
   post '/register' do
     #binding.pry
     if does_username_exist(params[:user_name]) == true
-      p 'username exists'
+      # p 'username exists'
       return {:message =>'Sorry, that username already exists. '}.to_json
     elsif (params[:user_email] != '' && params[:user_name] != '' && params[:password] != '')
       #binding.pry
@@ -26,10 +26,10 @@ class AccountController < ApplicationController
       @user.save
       session[:current_user] = @user
       current_user = @user
-      p 'redirect'
+      # p 'redirect'
       redirect '/createbuckit'
     else
-      p 'no fucks'
+      # p 'no fucks'
       @message = "You may have no fucks to give, but please fill in all the fields!"
       erb :signin
     end
