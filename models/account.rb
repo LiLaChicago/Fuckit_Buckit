@@ -1,8 +1,7 @@
 class Account < ActiveRecord::Base
 
   # self.table_name = 'account'
-  has_one :user_image
-  has_many :buckit
+
 
   include BCrypt
 

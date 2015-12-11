@@ -25,7 +25,7 @@ post '/createbuckit' do
   current_user = @user
   redirect '/buckethome' #make this!
 
-  erb :buckit_setup
+  erb :buckit_home
 end
 
 get '/buckethome' do
