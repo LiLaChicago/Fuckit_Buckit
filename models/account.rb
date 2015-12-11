@@ -2,7 +2,6 @@ class Account < ActiveRecord::Base
 
   # self.table_name = 'account'
 
-
   include BCrypt
 
   #setting the password
