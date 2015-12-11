@@ -9,18 +9,17 @@ body{
 
 
 }
-// #register{
-//
-//   clear: left;
-//   width: 300px;
-//
-//
-// }
-//
-//
-// #signin{
-//
-//   clear: right;
-//   width: 300px;
-//
-// }
+#register{
+
+  float: left;
+  width: 45%;
+
+
+}
+
+
+#signin{
+
+  float: right;
+  width: 40%;
+}
